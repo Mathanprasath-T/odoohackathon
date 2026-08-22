@@ -49,11 +49,14 @@ loginForm.addEventListener("submit", (event) => {
     signInButton.disabled = true;
     signInButton.querySelector(".button-text").textContent = "Preparing sign in";
 
-    // TODO: Connect this validated form data to the backend login API here.
+    // TODO: Replace this demo route with backend authentication and role-based access control.
+    const selectedRole = loginForm.elements.role.value;
+    const destination = selectedRole === "admin-hr" ? "admin-dashboard.html" : "employee-dashboard.html";
     window.setTimeout(() => {
         signInButton.classList.remove("is-loading");
         signInButton.disabled = false;
         signInButton.querySelector(".button-text").textContent = "Sign In";
         formMessage.textContent = "Login ready — backend authentication will be connected soon.";
+        window.location.assign(destination);
     }, 800);
 });

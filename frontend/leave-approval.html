@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin leave request approvals for Dayflow HRMS.">
+    <title>Leave Requests | Dayflow HRMS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body admin-body">
+    <div class="dashboard-layout">
+        <aside id="sidebar" class="dashboard-sidebar admin-sidebar" aria-label="Admin navigation">
+            <a class="dashboard-brand" href="admin-dashboard.html" aria-label="Dayflow admin dashboard"><span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Dayflow</span></a>
+            <p class="sidebar-subtitle">Admin / HR portal</p>
+            <nav class="sidebar-nav">
+                <a class="nav-link" href="admin-dashboard.html"><span aria-hidden="true">▦</span>Dashboard</a>
+                <a class="nav-link" href="employees.html"><span aria-hidden="true">◉</span>Employees</a>
+                <a class="nav-link active" href="leave-approval.html" aria-current="page"><span aria-hidden="true">□</span>Leave Requests</a>
+                <a class="nav-link" href="admin-dashboard.html#quick-actions"><span aria-hidden="true">₹</span>Payroll</a>
+            </nav>
+            <a class="logout-link" href="login.html"><span aria-hidden="true">↪</span>Logout</a>
+        </aside>
+
+        <main class="dashboard-main approval-main">
+            <header class="dashboard-header">
+                <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+                <div class="header-greeting"><p>Admin / HR portal</p><h1>Leave Requests</h1></div>
+                <span class="admin-avatar" aria-label="Priya Sharma">PS</span>
+            </header>
+
+            <section class="approval-section dashboard-card" aria-labelledby="requests-title">
+                <div class="directory-heading"><div><p class="section-label">Team leave</p><h2 id="requests-title">Manage Leave Requests</h2></div><span id="approval-count" class="request-count">0 requests</span></div>
+                <div class="approval-toolbar">
+                    <div class="filter-tabs" role="tablist" aria-label="Filter leave requests">
+                        <button class="filter-tab active" type="button" role="tab" aria-selected="true" data-status="all">All</button>
+                        <button class="filter-tab" type="button" role="tab" aria-selected="false" data-status="pending">Pending</button>
+                        <button class="filter-tab" type="button" role="tab" aria-selected="false" data-status="approved">Approved</button>
+                        <button class="filter-tab" type="button" role="tab" aria-selected="false" data-status="rejected">Rejected</button>
+                    </div>
+                    <p id="approval-message" class="approval-message" aria-live="polite" role="status"></p>
+                </div>
+                <div class="table-wrapper"><table class="approval-table"><thead><tr><th scope="col">Employee</th><th scope="col">Employee ID</th><th scope="col">Leave Type</th><th scope="col">From Date</th><th scope="col">To Date</th><th scope="col">Reason</th><th scope="col">Applied Date</th><th scope="col">Status</th><th scope="col">Actions</th></tr></thead><tbody id="approval-requests"></tbody></table></div>
+                <p id="empty-approval-requests" class="empty-history" hidden>No leave requests match this filter.</p>
+            </section>
+        </main>
+    </div>
+    <script src="js/leave-approval.js"></script>
+</body>
+</html>

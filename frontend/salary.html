@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Employee salary details for Dayflow HRMS.">
+    <title>Salary Details | Dayflow HRMS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+        <aside id="sidebar" class="dashboard-sidebar" aria-label="Employee navigation">
+            <a class="dashboard-brand" href="employee-dashboard.html" aria-label="Dayflow employee dashboard"><span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Dayflow</span></a>
+            <p class="sidebar-subtitle">Employee portal</p>
+            <nav class="sidebar-nav">
+                <a class="nav-link" href="employee-dashboard.html"><span aria-hidden="true">▦</span>Dashboard</a>
+                <a class="nav-link" href="profile.html"><span aria-hidden="true">◉</span>Profile</a>
+                <a class="nav-link" href="attendance.html"><span aria-hidden="true">◷</span>Attendance</a>
+                <a class="nav-link" href="leave.html"><span aria-hidden="true">□</span>Leave</a>
+                <a class="nav-link active" href="salary.html" aria-current="page"><span aria-hidden="true">₹</span>Salary</a>
+            </nav>
+            <a class="logout-link" href="login.html"><span aria-hidden="true">↪</span>Logout</a>
+        </aside>
+
+        <main class="dashboard-main salary-main">
+            <header class="dashboard-header">
+                <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+                <div class="header-greeting"><p>Employee workspace</p><h1>Salary Details</h1></div>
+                <a class="header-profile" href="profile.html" aria-label="View profile">AK</a>
+            </header>
+
+            <section class="salary-summary dashboard-card" aria-labelledby="salary-summary-title">
+                <div class="salary-summary-top"><div><p class="section-label">Current payroll</p><h2 id="salary-summary-title">August 2026</h2></div><button id="view-slip-button" class="primary-action" type="button">View Salary Slip</button></div>
+                <div class="salary-employee">
+                    <span class="salary-avatar" aria-hidden="true">AK</span>
+                    <div class="salary-employee-details">
+                        <div><small>Employee Name</small><h3>Alex Kumar</h3></div>
+                        <div><small>Employee ID</small><p>DF-1012</p></div>
+                        <div><small>Department</small><p>Product &amp; Design</p></div>
+                    </div>
+                    <span class="read-only-salary">Read only</span>
+                </div>
+                <div class="salary-figures">
+                    <div><p>Basic Salary</p><strong>₹30,000</strong></div>
+                    <div><p>Allowances</p><strong>₹6,500</strong></div>
+                    <div><p>Deductions</p><strong class="deduction-value">− ₹1,750</strong></div>
+                    <div class="net-salary"><p>Net Salary</p><strong>₹34,750</strong><small>Credited on 31 Aug</small></div>
+                </div>
+            </section>
+
+            <section class="salary-history dashboard-card" aria-labelledby="salary-history-title">
+                <div class="section-heading"><div><p class="section-label">Payroll records</p><h2 id="salary-history-title">Salary History</h2></div><span class="read-only-label">Read only</span></div>
+                <p class="salary-note">Your salary information is for viewing only. Contact HR if you have a question about a payslip.</p>
+                <div class="table-wrapper"><table class="salary-table"><thead><tr><th scope="col">Month</th><th scope="col">Basic Salary</th><th scope="col">Allowances</th><th scope="col">Deductions</th><th scope="col">Net Salary</th></tr></thead><tbody>
+                    <tr><td data-label="Month">August 2026</td><td data-label="Basic Salary">₹30,000</td><td data-label="Allowances">₹6,500</td><td data-label="Deductions">₹1,750</td><td data-label="Net Salary"><strong>₹34,750</strong></td></tr>
+                    <tr><td data-label="Month">July 2026</td><td data-label="Basic Salary">₹30,000</td><td data-label="Allowances">₹6,500</td><td data-label="Deductions">₹1,750</td><td data-label="Net Salary"><strong>₹34,750</strong></td></tr>
+                    <tr><td data-label="Month">June 2026</td><td data-label="Basic Salary">₹30,000</td><td data-label="Allowances">₹6,250</td><td data-label="Deductions">₹1,750</td><td data-label="Net Salary"><strong>₹34,500</strong></td></tr>
+                    <tr><td data-label="Month">May 2026</td><td data-label="Basic Salary">₹30,000</td><td data-label="Allowances">₹6,250</td><td data-label="Deductions">₹1,750</td><td data-label="Net Salary"><strong>₹34,500</strong></td></tr>
+                </tbody></table></div>
+            </section>
+        </main>
+    </div>
+
+    <div id="salary-slip-modal" class="employee-modal" hidden>
+        <div class="modal-backdrop" data-close-slip="true"></div>
+        <section class="salary-slip-card" role="dialog" aria-modal="true" aria-labelledby="slip-title">
+            <div class="modal-header"><div><p class="section-label">Salary slip preview</p><h2 id="slip-title">August 2026</h2></div><button id="close-slip" class="modal-close" type="button" aria-label="Close salary slip">×</button></div>
+            <div class="slip-brand"><span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span><strong>Dayflow</strong><span>Salary Slip</span></div>
+            <div class="slip-person"><div><small>Employee</small><strong>Alex Kumar</strong><span>DF-1012</span></div><div><small>Department</small><strong>Product &amp; Design</strong><span>August 2026</span></div></div>
+            <div class="slip-breakdown"><div><h3>Earnings</h3><p><span>Basic salary</span><strong>₹30,000</strong></p><p><span>Allowances</span><strong>₹6,500</strong></p></div><div><h3>Deductions</h3><p><span>Professional tax</span><strong>₹1,750</strong></p></div></div>
+            <div class="slip-net"><span>Net salary</span><strong>₹34,750</strong></div>
+            <div class="modal-footer"><button id="close-slip-button" class="primary-action" type="button">Close Preview</button></div>
+        </section>
+    </div>
+    <script src="js/salary.js"></script>
+</body>
+</html>

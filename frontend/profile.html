@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Employee profile for Dayflow HRMS.">
+    <title>My Profile | Dayflow HRMS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+        <aside id="sidebar" class="dashboard-sidebar" aria-label="Employee navigation">
+            <a class="dashboard-brand" href="employee-dashboard.html" aria-label="Dayflow employee dashboard"><span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Dayflow</span></a>
+            <p class="sidebar-subtitle">Employee portal</p>
+            <nav class="sidebar-nav">
+                <a class="nav-link" href="employee-dashboard.html"><span aria-hidden="true">▦</span>Dashboard</a>
+                <a class="nav-link active" href="profile.html" aria-current="page"><span aria-hidden="true">◉</span>Profile</a>
+                <a class="nav-link" href="attendance.html"><span aria-hidden="true">◷</span>Attendance</a>
+                <a class="nav-link" href="leave.html"><span aria-hidden="true">□</span>Leave</a>
+                <a class="nav-link" href="salary.html"><span aria-hidden="true">₹</span>Salary</a>
+            </nav>
+            <a class="logout-link" href="login.html"><span aria-hidden="true">↪</span>Logout</a>
+        </aside>
+        <main class="dashboard-main profile-main">
+            <header class="dashboard-header">
+                <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+                <div class="header-greeting"><p>Employee workspace</p><h1>My Profile</h1></div>
+                <span class="header-profile" aria-label="Alex Kumar">AK</span>
+            </header>
+            <section class="profile-page-card dashboard-card" aria-labelledby="profile-title">
+                <div class="profile-page-header"><span class="profile-page-avatar" aria-hidden="true">AK</span><div><p class="section-label">Employee profile</p><h2 id="profile-title">Alex Kumar</h2><p>Product Design Intern · Product &amp; Design</p></div><span class="read-only-label">Read only</span></div>
+                <p class="profile-note">Profile details are currently view-only. Contact HR to request an update.</p>
+                <div class="profile-detail-grid">
+                    <section><h3>Personal Details</h3><dl><div><dt>Employee ID</dt><dd>DF-1012</dd></div><div><dt>Work Email</dt><dd>alex.kumar@dayflow.com</dd></div><div><dt>Phone</dt><dd>+91 98765 43216</dd></div></dl></section>
+                    <section><h3>Employment Details</h3><dl><div><dt>Department</dt><dd>Product &amp; Design</dd></div><div><dt>Designation</dt><dd>Product Design Intern</dd></div><div><dt>Joining Date</dt><dd>10 June 2025</dd></div></dl></section>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/profile.js"></script>
+</body>
+</html>

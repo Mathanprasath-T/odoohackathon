@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Employee management for Dayflow HRMS administrators.">
+    <title>Employee Management | Dayflow HRMS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body admin-body">
+    <div class="dashboard-layout">
+        <aside id="sidebar" class="dashboard-sidebar admin-sidebar" aria-label="Admin navigation">
+            <a class="dashboard-brand" href="admin-dashboard.html" aria-label="Dayflow admin dashboard"><span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Dayflow</span></a>
+            <p class="sidebar-subtitle">Admin / HR portal</p>
+            <nav class="sidebar-nav">
+                <a class="nav-link" href="admin-dashboard.html"><span aria-hidden="true">▦</span>Dashboard</a>
+                <a class="nav-link active" href="employees.html" aria-current="page"><span aria-hidden="true">◉</span>Employees</a>
+                <a class="nav-link" href="leave-approval.html"><span aria-hidden="true">□</span>Leave Requests</a>
+                <a class="nav-link" href="admin-dashboard.html#quick-actions"><span aria-hidden="true">₹</span>Payroll</a>
+            </nav>
+            <a class="logout-link" href="login.html"><span aria-hidden="true">↪</span>Logout</a>
+        </aside>
+
+        <main class="dashboard-main employees-main">
+            <header class="dashboard-header">
+                <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+                <div class="header-greeting"><p>Admin / HR portal</p><h1>Employee Management</h1></div>
+                <span class="admin-avatar" aria-label="Priya Sharma">PS</span>
+            </header>
+
+            <section class="employee-directory dashboard-card" aria-labelledby="directory-title">
+                <div class="directory-heading"><div><p class="section-label">Team directory</p><h2 id="directory-title">All Employees</h2></div><span id="employee-count" class="request-count">0 employees</span></div>
+                <div class="employee-filters">
+                    <label class="search-control"><span class="sr-only">Search employee</span><span aria-hidden="true">⌕</span><input id="employee-search" type="search" placeholder="Search by name, email or ID"></label>
+                    <label><span class="sr-only">Filter by department</span><select id="department-filter"><option value="all">All departments</option><option value="Engineering">Engineering</option><option value="Sales">Sales</option><option value="Operations">Operations</option><option value="People &amp; Finance">People &amp; Finance</option></select></label>
+                    <label><span class="sr-only">Filter by status</span><select id="status-filter"><option value="all">All statuses</option><option value="Active">Active</option><option value="Inactive">Inactive</option></select></label>
+                </div>
+                <p id="employee-result-message" class="employee-result-message" aria-live="polite"></p>
+                <div class="table-wrapper"><table class="employee-table"><thead><tr><th scope="col">Employee ID</th><th scope="col">Profile</th><th scope="col">Name</th><th scope="col">Email</th><th scope="col">Department</th><th scope="col">Designation</th><th scope="col">Status</th><th scope="col">Action</th></tr></thead><tbody id="employee-list"></tbody></table></div>
+                <p id="empty-employees" class="empty-history" hidden>No employees match the selected filters.</p>
+            </section>
+        </main>
+    </div>
+
+    <div id="employee-modal" class="employee-modal" hidden>
+        <div class="modal-backdrop" data-close-modal="true"></div>
+        <section class="employee-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-header"><div><p class="section-label">Employee profile</p><h2 id="modal-title">Employee details</h2></div><button id="close-modal" class="modal-close" type="button" aria-label="Close employee details">×</button></div>
+            <div id="modal-content"></div>
+            <div class="modal-footer"><button id="modal-edit-button" class="secondary-action" type="button">Edit Employee</button><button id="modal-close-button" class="primary-action" type="button">Close</button></div>
+            <p id="edit-message" class="employee-result-message" aria-live="polite"></p>
+        </section>
+    </div>
+    <script src="js/employees.js"></script>
+</body>
+</html>
