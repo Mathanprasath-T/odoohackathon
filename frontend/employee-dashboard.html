@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Employee dashboard for Dayflow Human Resource Management System.">
+    <title>Employee Dashboard | Dayflow HRMS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+        <aside id="sidebar" class="dashboard-sidebar" aria-label="Main navigation">
+            <a class="dashboard-brand" href="employee-dashboard.html" aria-label="Dayflow dashboard">
+                <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+                <span>Dayflow</span>
+            </a>
+            <p class="sidebar-subtitle">Employee portal</p>
+
+            <nav class="sidebar-nav">
+                <a class="nav-link active" href="employee-dashboard.html" aria-current="page"><span aria-hidden="true">▦</span>Dashboard</a>
+                <a class="nav-link" href="#profile"><span aria-hidden="true">◉</span>Profile</a>
+                <a class="nav-link" href="#attendance"><span aria-hidden="true">◷</span>Attendance</a>
+                <a class="nav-link" href="#leave"><span aria-hidden="true">□</span>Leave</a>
+                <a class="nav-link" href="#salary"><span aria-hidden="true">₹</span>Salary</a>
+            </nav>
+
+            <a class="logout-link" href="login.html"><span aria-hidden="true">↪</span>Logout</a>
+        </aside>
+
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+                <div class="header-greeting">
+                    <p>Your employee workspace</p>
+                    <h1>Welcome back, <span data-employee-name>Alex!</span></h1>
+                </div>
+                <button id="notification-button" class="notification-button" type="button" aria-label="Show notifications" aria-expanded="true" aria-controls="notification-area">
+                    <span aria-hidden="true">♢</span><i></i>
+                </button>
+            </header>
+
+            <section id="notification-area" class="notification-area" aria-live="polite">
+                <div><strong>Good morning!</strong><span>Your attendance for today is now marked.</span></div>
+                <button id="dismiss-notification" type="button" aria-label="Dismiss notification">×</button>
+            </section>
+
+            <section class="dashboard-overview" aria-label="Employee overview">
+                <article id="profile" class="profile-card dashboard-card">
+                    <div class="avatar" aria-hidden="true">AK</div>
+                    <div class="profile-details">
+                        <p class="section-label">Your profile</p>
+                        <h2 data-employee-name>Alex Kumar</h2>
+                        <p>Product Design Intern</p>
+                    </div>
+                    <a href="#profile" class="text-link">View profile</a>
+                </article>
+
+                <article id="attendance" class="metric-card dashboard-card attendance-card">
+                    <div class="card-icon indigo-icon" aria-hidden="true">◷</div>
+                    <div><p class="section-label">Today’s attendance</p><h2>Checked in</h2><p class="metric-detail">09:12 AM · On time</p></div>
+                    <span class="status-pill success">Present</span>
+                </article>
+
+                <article id="leave" class="metric-card dashboard-card">
+                    <div class="card-icon blue-icon" aria-hidden="true">□</div>
+                    <div><p class="section-label">Leave requests</p><h2>12 days</h2><p class="metric-detail">Available this year</p></div>
+                    <a href="#leave" class="text-link">View</a>
+                </article>
+
+                <article id="salary" class="metric-card dashboard-card">
+                    <div class="card-icon green-icon" aria-hidden="true">₹</div>
+                    <div><p class="section-label">Salary</p><h2>August payroll</h2><p class="metric-detail">Expected on 31 Aug</p></div>
+                    <a href="#salary" class="text-link">Details</a>
+                </article>
+            </section>
+
+            <section class="activity-section dashboard-card" aria-labelledby="activity-title">
+                <div class="section-heading"><div><p class="section-label">Updates</p><h2 id="activity-title">Recent Activity</h2></div><a href="#activity-title" class="text-link">View all</a></div>
+                <ol class="activity-list">
+                    <li><span class="activity-dot purple" aria-hidden="true"></span><div><strong>Attendance marked</strong><p>You checked in at 09:12 AM today.</p></div><time datetime="2026-08-22T09:12">Today</time></li>
+                    <li><span class="activity-dot blue" aria-hidden="true"></span><div><strong>Leave balance updated</strong><p>Your annual leave balance is now 12 days.</p></div><time datetime="2026-08-21">Yesterday</time></li>
+                    <li><span class="activity-dot green" aria-hidden="true"></span><div><strong>August payslip is processing</strong><p>Your salary details will be available soon.</p></div><time datetime="2026-08-20">2 days ago</time></li>
+                </ol>
+            </section>
+        </main>
+    </div>
+    <script src="js/employee-dashboard.js"></script>
+</body>
+</html>
