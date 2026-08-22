@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Leave management for Dayflow HRMS.">
+    <title>Leave Management | Dayflow HRMS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+        <aside id="sidebar" class="dashboard-sidebar" aria-label="Main navigation">
+            <a class="dashboard-brand" href="employee-dashboard.html" aria-label="Dayflow dashboard">
+                <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Dayflow</span>
+            </a>
+            <p class="sidebar-subtitle">Employee portal</p>
+            <nav class="sidebar-nav">
+                <a class="nav-link" href="employee-dashboard.html"><span aria-hidden="true">▦</span>Dashboard</a>
+                <a class="nav-link" href="employee-dashboard.html#profile"><span aria-hidden="true">◉</span>Profile</a>
+                <a class="nav-link" href="attendance.html"><span aria-hidden="true">◷</span>Attendance</a>
+                <a class="nav-link active" href="leave.html" aria-current="page"><span aria-hidden="true">□</span>Leave</a>
+                <a class="nav-link" href="employee-dashboard.html#salary"><span aria-hidden="true">₹</span>Salary</a>
+            </nav>
+            <a class="logout-link" href="login.html"><span aria-hidden="true">↪</span>Logout</a>
+        </aside>
+
+        <main class="dashboard-main leave-main">
+            <header class="dashboard-header">
+                <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+                <div class="header-greeting"><p>Employee workspace</p><h1>Leave Management</h1></div>
+                <a class="header-profile" href="employee-dashboard.html#profile" aria-label="View profile">AK</a>
+            </header>
+
+            <section class="leave-apply-section dashboard-card" aria-labelledby="apply-leave-title">
+                <div class="section-heading"><div><p class="section-label">New request</p><h2 id="apply-leave-title">Apply for Leave</h2></div></div>
+                <form id="leave-form" class="leave-form" novalidate>
+                    <div class="form-group">
+                        <label for="leave-type">Leave Type</label>
+                        <select id="leave-type" name="leaveType" aria-describedby="leave-type-error" required>
+                            <option value="">Select leave type</option>
+                            <option value="Paid Leave">Paid Leave</option>
+                            <option value="Sick Leave">Sick Leave</option>
+                            <option value="Unpaid Leave">Unpaid Leave</option>
+                        </select>
+                        <p id="leave-type-error" class="field-error" aria-live="polite"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="from-date">From Date</label>
+                        <input id="from-date" name="fromDate" type="date" aria-describedby="from-date-error" required>
+                        <p id="from-date-error" class="field-error" aria-live="polite"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="to-date">To Date</label>
+                        <input id="to-date" name="toDate" type="date" aria-describedby="to-date-error" required>
+                        <p id="to-date-error" class="field-error" aria-live="polite"></p>
+                    </div>
+                    <div class="form-group reason-group">
+                        <label for="leave-reason">Reason / Remarks</label>
+                        <textarea id="leave-reason" name="reason" rows="4" placeholder="Briefly describe your reason for leave" aria-describedby="leave-reason-error" required></textarea>
+                        <p id="leave-reason-error" class="field-error" aria-live="polite"></p>
+                    </div>
+                    <div class="leave-form-footer"><button class="primary-action" type="submit">Apply Leave</button><p id="leave-form-message" class="leave-form-message" aria-live="polite" role="status"></p></div>
+                </form>
+            </section>
+
+            <section class="leave-requests-section dashboard-card" aria-labelledby="requests-title">
+                <div class="section-heading"><div><p class="section-label">Your records</p><h2 id="requests-title">My Leave Requests</h2></div><span id="request-count" class="request-count">0 requests</span></div>
+                <div class="table-wrapper">
+                    <table class="leave-table">
+                        <thead><tr><th scope="col">Leave Type</th><th scope="col">From Date</th><th scope="col">To Date</th><th scope="col">Days</th><th scope="col">Reason</th><th scope="col">Status</th><th scope="col">Applied Date</th></tr></thead>
+                        <tbody id="leave-requests"></tbody>
+                    </table>
+                </div>
+                <p id="empty-requests" class="empty-history" hidden>You have not submitted any leave requests yet.</p>
+            </section>
+        </main>
+    </div>
+    <script src="js/leave.js"></script>
+</body>
+</html>

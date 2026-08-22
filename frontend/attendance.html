@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Attendance tracking for Dayflow HRMS.">
+    <title>Attendance | Dayflow HRMS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-layout">
+        <aside id="sidebar" class="dashboard-sidebar" aria-label="Main navigation">
+            <a class="dashboard-brand" href="employee-dashboard.html" aria-label="Dayflow dashboard">
+                <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Dayflow</span>
+            </a>
+            <p class="sidebar-subtitle">Employee portal</p>
+            <nav class="sidebar-nav">
+                <a class="nav-link" href="employee-dashboard.html"><span aria-hidden="true">▦</span>Dashboard</a>
+                <a class="nav-link" href="employee-dashboard.html#profile"><span aria-hidden="true">◉</span>Profile</a>
+                <a class="nav-link active" href="attendance.html" aria-current="page"><span aria-hidden="true">◷</span>Attendance</a>
+                <a class="nav-link" href="employee-dashboard.html#leave"><span aria-hidden="true">□</span>Leave</a>
+                <a class="nav-link" href="employee-dashboard.html#salary"><span aria-hidden="true">₹</span>Salary</a>
+            </nav>
+            <a class="logout-link" href="login.html"><span aria-hidden="true">↪</span>Logout</a>
+        </aside>
+
+        <main class="dashboard-main attendance-main">
+            <header class="dashboard-header">
+                <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+                <div class="header-greeting"><p>Employee workspace</p><h1>Attendance</h1></div>
+                <a class="header-profile" href="employee-dashboard.html#profile" aria-label="View profile">AK</a>
+            </header>
+
+            <section class="today-attendance dashboard-card" aria-labelledby="today-title">
+                <div class="today-heading">
+                    <div><p class="section-label">Today’s attendance</p><h2 id="today-title" data-current-date>Loading date…</h2></div>
+                    <span id="current-status" class="status-pill absent">Absent</span>
+                </div>
+                <div class="attendance-times">
+                    <div><span class="time-icon purple" aria-hidden="true">↳</span><p>Check In</p><strong id="check-in-time">Not checked in</strong></div>
+                    <div><span class="time-icon blue" aria-hidden="true">↲</span><p>Check Out</p><strong id="check-out-time">Not checked out</strong></div>
+                    <div><span class="time-icon green" aria-hidden="true">◷</span><p>Working Hours</p><strong id="working-hours">—</strong></div>
+                </div>
+                <div class="attendance-actions">
+                    <button id="check-in-button" class="primary-action" type="button">Check In</button>
+                    <button id="check-out-button" class="secondary-action" type="button" disabled>Check Out</button>
+                    <p id="attendance-message" class="attendance-message" aria-live="polite" role="status"></p>
+                </div>
+            </section>
+
+            <section class="history-section dashboard-card" aria-labelledby="history-title">
+                <div class="history-topbar">
+                    <div><p class="section-label">Records</p><h2 id="history-title">Attendance History</h2></div>
+                    <div class="history-controls">
+                        <div class="view-tabs" role="tablist" aria-label="Attendance view">
+                            <button class="view-tab active" type="button" role="tab" aria-selected="true" data-view="daily">Daily</button>
+                            <button class="view-tab" type="button" role="tab" aria-selected="false" data-view="weekly">Weekly</button>
+                        </div>
+                        <label class="date-control"><span class="sr-only">Select date</span><input id="date-selector" type="date"></label>
+                    </div>
+                </div>
+                <p id="history-summary" class="history-summary">Showing sample daily attendance records.</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead><tr><th scope="col">Date</th><th scope="col">Check In</th><th scope="col">Check Out</th><th scope="col">Working Hours</th><th scope="col">Status</th></tr></thead>
+                        <tbody id="attendance-history"></tbody>
+                    </table>
+                </div>
+                <p id="empty-history" class="empty-history" hidden>No attendance record was found for this date.</p>
+            </section>
+        </main>
+    </div>
+    <script src="js/attendance.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin dashboard for Dayflow Human Resource Management System.">
+    <title>Admin Dashboard | Dayflow HRMS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-body admin-body">
+    <div class="dashboard-layout">
+        <aside id="sidebar" class="dashboard-sidebar admin-sidebar" aria-label="Admin navigation">
+            <a class="dashboard-brand" href="admin-dashboard.html" aria-label="Dayflow admin dashboard">
+                <span class="logo-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Dayflow</span>
+            </a>
+            <p class="sidebar-subtitle">Admin / HR portal</p>
+            <nav class="sidebar-nav">
+                <a class="nav-link active" href="admin-dashboard.html" aria-current="page"><span aria-hidden="true">▦</span>Dashboard</a>
+                <a class="nav-link" href="#employee-overview"><span aria-hidden="true">◉</span>Employees</a>
+                <a class="nav-link" href="attendance.html"><span aria-hidden="true">◷</span>Attendance</a>
+                <a class="nav-link" href="leave.html"><span aria-hidden="true">□</span>Leave Requests</a>
+                <a class="nav-link" href="#quick-actions"><span aria-hidden="true">₹</span>Payroll</a>
+            </nav>
+            <a class="logout-link" href="login.html"><span aria-hidden="true">↪</span>Logout</a>
+        </aside>
+
+        <main class="dashboard-main admin-main">
+            <header class="dashboard-header">
+                <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button>
+                <div class="header-greeting"><p>HR workspace overview</p><h1>Good morning, <span>Priya!</span></h1></div>
+                <div class="admin-header-actions"><button id="admin-notification-button" class="notification-button" type="button" aria-label="Show notification" aria-expanded="false" aria-controls="admin-notification"><span aria-hidden="true">♢</span><i></i></button><span class="admin-avatar" aria-label="Priya Sharma">PS</span></div>
+            </header>
+
+            <div id="admin-notification" class="notification-area admin-notification" hidden role="status"><div><strong>3 leave requests need review</strong><span>Keep your team’s plans moving.</span></div><button id="dismiss-admin-notification" type="button" aria-label="Dismiss notification">×</button></div>
+
+            <section class="admin-stats" aria-label="Workforce statistics">
+                <article class="admin-stat-card dashboard-card"><span class="admin-stat-icon indigo-icon" aria-hidden="true">◉</span><div><p>Total Employees</p><strong>128</strong><small>+6 this month</small></div></article>
+                <article class="admin-stat-card dashboard-card"><span class="admin-stat-icon green-icon" aria-hidden="true">✓</span><div><p>Present Today</p><strong>112</strong><small>87.5% of team</small></div></article>
+                <article class="admin-stat-card dashboard-card"><span class="admin-stat-icon red-icon" aria-hidden="true">−</span><div><p>Absent Today</p><strong>9</strong><small>7.0% of team</small></div></article>
+                <article class="admin-stat-card dashboard-card"><span class="admin-stat-icon blue-icon" aria-hidden="true">□</span><div><p>Employees on Leave</p><strong>7</strong><small>5.5% of team</small></div></article>
+                <article class="admin-stat-card dashboard-card"><span class="admin-stat-icon amber-icon" aria-hidden="true">◷</span><div><p>Pending Leave Requests</p><strong>3</strong><small>Awaiting review</small></div></article>
+            </section>
+
+            <section class="admin-grid">
+                <article id="employee-overview" class="employee-overview dashboard-card">
+                    <div class="section-heading"><div><p class="section-label">People</p><h2>Employee Overview</h2></div><a class="text-link" href="#employee-overview">View employees</a></div>
+                    <div class="department-bars">
+                        <div><div><span>Engineering</span><strong>42</strong></div><i><b class="bar-engineering"></b></i></div>
+                        <div><div><span>Sales &amp; Marketing</span><strong>31</strong></div><i><b class="bar-sales"></b></i></div>
+                        <div><div><span>Operations</span><strong>28</strong></div><i><b class="bar-operations"></b></i></div>
+                        <div><div><span>People &amp; Finance</span><strong>27</strong></div><i><b class="bar-people"></b></i></div>
+                    </div>
+                </article>
+
+                <article class="attendance-summary dashboard-card">
+                    <div class="section-heading"><div><p class="section-label">Today</p><h2>Attendance Summary</h2></div><a class="text-link" href="attendance.html">View attendance</a></div>
+                    <div class="attendance-ring" aria-label="87.5 percent of employees present"><div><strong>87.5%</strong><span>Present</span></div></div>
+                    <div class="attendance-legend"><span><i class="legend-dot present-dot"></i>Present <b>112</b></span><span><i class="legend-dot absent-dot"></i>Absent <b>9</b></span><span><i class="legend-dot leave-dot"></i>On leave <b>7</b></span></div>
+                </article>
+            </section>
+
+            <section class="admin-leave-section dashboard-card" aria-labelledby="recent-leave-title">
+                <div class="section-heading"><div><p class="section-label">Action needed</p><h2 id="recent-leave-title">Recent Leave Requests</h2></div><a class="text-link" href="leave.html">View all requests</a></div>
+                <p id="admin-action-message" class="admin-action-message" aria-live="polite" role="status"></p>
+                <div class="table-wrapper"><table class="admin-leave-table"><thead><tr><th scope="col">Employee</th><th scope="col">Leave Type</th><th scope="col">Dates</th><th scope="col">Status</th><th scope="col">Action</th></tr></thead><tbody>
+                    <tr><td data-label="Employee"><span class="employee-initial">RK</span><span><strong>Rohan Kapoor</strong><small>Engineering</small></span></td><td data-label="Leave Type">Paid Leave</td><td data-label="Dates">28–29 Aug 2026</td><td data-label="Status"><span class="status-pill pending">Pending</span></td><td data-label="Action"><button class="review-button" type="button" data-employee="Rohan Kapoor">Review</button></td></tr>
+                    <tr><td data-label="Employee"><span class="employee-initial teal">SM</span><span><strong>Simran Mehta</strong><small>Sales</small></span></td><td data-label="Leave Type">Sick Leave</td><td data-label="Dates">25 Aug 2026</td><td data-label="Status"><span class="status-pill pending">Pending</span></td><td data-label="Action"><button class="review-button" type="button" data-employee="Simran Mehta">Review</button></td></tr>
+                    <tr><td data-label="Employee"><span class="employee-initial orange">AD</span><span><strong>Arjun Das</strong><small>Operations</small></span></td><td data-label="Leave Type">Unpaid Leave</td><td data-label="Dates">02–04 Sep 2026</td><td data-label="Status"><span class="status-pill pending">Pending</span></td><td data-label="Action"><button class="review-button" type="button" data-employee="Arjun Das">Review</button></td></tr>
+                </tbody></table></div>
+            </section>
+
+            <section id="quick-actions" class="quick-actions dashboard-card" aria-labelledby="quick-actions-title">
+                <div class="section-heading"><div><p class="section-label">Shortcuts</p><h2 id="quick-actions-title">Quick Actions</h2></div></div>
+                <div class="quick-action-grid">
+                    <a href="#employee-overview"><span class="quick-icon indigo-icon" aria-hidden="true">◉</span><span><strong>View Employees</strong><small>Browse team directory</small></span><b aria-hidden="true">→</b></a>
+                    <a href="attendance.html"><span class="quick-icon blue-icon" aria-hidden="true">◷</span><span><strong>View Attendance</strong><small>See today’s records</small></span><b aria-hidden="true">→</b></a>
+                    <a href="leave.html"><span class="quick-icon amber-icon" aria-hidden="true">□</span><span><strong>Review Leave Requests</strong><small>Review pending requests</small></span><b aria-hidden="true">→</b></a>
+                    <a href="#quick-actions"><span class="quick-icon green-icon" aria-hidden="true">₹</span><span><strong>View Payroll</strong><small>Access payroll summary</small></span><b aria-hidden="true">→</b></a>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
